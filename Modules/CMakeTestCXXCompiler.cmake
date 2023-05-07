@@ -46,8 +46,14 @@ if(NOT CMAKE_CXX_COMPILER_WORKS)
   # Clear result from normal variable.
   unset(CMAKE_CXX_COMPILER_WORKS)
   # Puts test result in cache variable.
+<<<<<<< HEAD
   try_compile(CMAKE_CXX_COMPILER_WORKS
     SOURCE_FROM_VAR testCXXCompiler.cxx __TestCompiler_testCXXCompilerSource
+=======
+  try_compile(CMAKE_CXX_COMPILER_WORKS ${CMAKE_BINARY_DIR}
+    ${CMAKE_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/CMakeTmp/testCXXCompiler.cxx
+          CMAKE_FLAGS "-DLINK_DIRECTORIES=${CMAKE_CXX_IMPLICIT_LINK_DIRECTORIES}"
+>>>>>>> 36c90594f0 (update TestCXXCompiler.cmake)
     OUTPUT_VARIABLE __CMAKE_CXX_COMPILER_OUTPUT)
   unset(__TestCompiler_testCXXCompilerSource)
   # Move result from cache to normal variable.
